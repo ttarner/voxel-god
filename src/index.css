@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Pastel Neomorphic Tactile Shadows & Matte Rubber Finishes */
+  .shadow-pastel-panel {
+    box-shadow: 
+      0 8px 24px -4px rgba(148, 163, 184, 0.35),
+      0 2px 8px -2px rgba(148, 163, 184, 0.2),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 2px 0 rgba(148, 163, 184, 0.15);
+  }
+
+  .dark .shadow-pastel-panel {
+    box-shadow: 
+      0 8px 24px -4px rgba(0, 0, 0, 0.5),
+      0 2px 8px -2px rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 2px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .shadow-pastel-btn {
+    box-shadow: 
+      0 3px 8px -1px rgba(148, 163, 184, 0.35),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 1px 0 rgba(100, 116, 139, 0.15);
+  }
+
+  .dark .shadow-pastel-btn {
+    box-shadow: 
+      0 3px 8px -1px rgba(0, 0, 0, 0.4),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .shadow-pastel-mint {
+    box-shadow: 
+      0 4px 12px -2px rgba(52, 211, 153, 0.35),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1.5px 2px 0 rgba(5, 150, 105, 0.25);
+  }
+
+  .shadow-pastel-coral {
+    box-shadow: 
+      0 4px 12px -2px rgba(251, 146, 60, 0.35),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1.5px 2px 0 rgba(234, 88, 12, 0.25);
+  }
+
+  .shadow-pastel-indigo {
+    box-shadow: 
+      0 4px 12px -2px rgba(129, 140, 248, 0.35),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1.5px 2px 0 rgba(79, 70, 229, 0.25);
+  }
+
+  .shadow-pastel-aqua {
+    box-shadow: 
+      0 0 0 3px rgba(56, 189, 248, 0.6),
+      0 4px 14px -1px rgba(14, 165, 233, 0.35),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .shadow-pastel-sun {
+    box-shadow: 
+      0 4px 12px -2px rgba(245, 158, 11, 0.35),
+      inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1.5px 2px 0 rgba(217, 119, 6, 0.25);
+  }
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Safe area insets for iOS notch, Dynamic Island, status bar, Safari toolbar & home bar */
+.safe-top-padding {
+  padding-top: calc(max(env(safe-area-inset-top, 0px), 16px) + 2px) !important;
+}
+
+@media (min-width: 640px) {
+  .safe-top-padding {
+    padding-top: calc(max(env(safe-area-inset-top, 0px), 8px) + 2px) !important;
+  }
+}
+
+/* Generous bottom clearance specifically for iOS PWA Home Indicator & gesture bar */
+.safe-bottom-padding {
+  padding-bottom: calc(max(env(safe-area-inset-bottom, 0px), 24px) + 16px) !important;
+}
+
+@media (min-width: 640px) {
+  .safe-bottom-padding {
+    padding-bottom: calc(max(env(safe-area-inset-bottom, 0px), 12px) + 8px) !important;
+  }
+}
+
+.safe-left-padding {
+  padding-left: calc(max(env(safe-area-inset-left, 0px), 8px) + 4px) !important;
+}
+
+.safe-right-padding {
+  padding-right: calc(max(env(safe-area-inset-right, 0px), 8px) + 4px) !important;
+}
+
+.challenge-hud-top {
+  top: calc(max(env(safe-area-inset-top, 0px), 16px) + 42px);
+}
+
+@media (min-width: 640px) {
+  .challenge-hud-top {
+    top: calc(max(env(safe-area-inset-top, 0px), 8px) + 42px);
+  }
+}
