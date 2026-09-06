@@ -251,7 +251,7 @@ export const useWorldStore = create<WorldStoreState>((set, get) => {
     ambientVolume: 0.7,
     hapticsEnabled: true,
     bloomEnabled: true,
-    bloomIntensity: 0.75,
+    bloomIntensity: 0.35,
     history: [{ ...initialBlocks }],
     historyIndex: 0,
     blockCount: Object.keys(initialBlocks).length,

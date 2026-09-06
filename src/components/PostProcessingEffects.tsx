@@ -43,15 +43,15 @@ export function PostProcessingEffects() {
     const renderPass = new RenderPass(scene, camera);
     comp.addPass(renderPass);
 
-    // Dreamy bloom pass with wide diffusion radius and pastel-receptive threshold
+    // Refined bloom pass with clean highlight isolation and crisp pastel rendering
     const bloom = new UnrealBloomPass(
       new THREE.Vector2(
         Math.max(1, Math.floor(size.width * pixelRatio)),
         Math.max(1, Math.floor(size.height * pixelRatio))
       ),
-      0.48, // initial strength
-      0.80, // initial radius
-      0.66  // initial threshold
+      0.22, // initial strength
+      0.35, // initial radius
+      0.90  // initial threshold
     );
     comp.addPass(bloom);
 
@@ -73,35 +73,31 @@ export function PostProcessingEffects() {
     const normalized =
       timeOfDay === 'day' ? 'noon' : timeOfDay === 'sunset' ? 'twilight' : timeOfDay;
 
-    // Environmental baseline profiles tuned specifically for pastel colors
-    let baseStrength = 0.48;
-    let baseRadius = 0.80;
-    let baseThreshold = 0.66;
+    // Environmental baseline profiles tuned specifically for crisp pastel aesthetics without washing out
+    let baseStrength = 0.20;
+    let baseRadius = 0.35;
+    let baseThreshold = 0.92;
 
     if (normalized === 'sunrise') {
-      // Warm peach & rosy morning haze
-      baseStrength = 0.54;
-      baseRadius = 0.84;
-      baseThreshold = 0.62;
+      baseStrength = 0.24;
+      baseRadius = 0.38;
+      baseThreshold = 0.88;
     } else if (normalized === 'twilight') {
-      // Dreamy golden-hour & lavender twilight radiance
-      baseStrength = 0.58;
-      baseRadius = 0.88;
-      baseThreshold = 0.60;
+      baseStrength = 0.26;
+      baseRadius = 0.40;
+      baseThreshold = 0.86;
     } else if (normalized === 'night') {
-      // Ethereal nocturnal moonlight glow
-      baseStrength = 0.64;
-      baseRadius = 0.92;
-      baseThreshold = 0.54;
+      baseStrength = 0.30;
+      baseRadius = 0.42;
+      baseThreshold = 0.82;
     } else {
-      // Noon / Day: Soft, velvety pastel sunshine glow
-      baseStrength = 0.48;
-      baseRadius = 0.80;
-      baseThreshold = 0.66;
+      // Noon / Day: Crisp, clean pastel sunshine without milky haze
+      baseStrength = 0.20;
+      baseRadius = 0.35;
+      baseThreshold = 0.92;
     }
 
-    // Scale strength by user intensity setting (0.75 is the default reference sweet spot)
-    const userScale = bloomIntensity / 0.75;
+    const userScale = bloomIntensity / 0.5;
     bloomPass.strength = Math.max(0, baseStrength * userScale);
     bloomPass.radius = baseRadius;
     bloomPass.threshold = baseThreshold;

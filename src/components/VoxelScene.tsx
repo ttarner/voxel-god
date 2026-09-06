@@ -44,11 +44,11 @@ function LightingAndEnvironment({ timeOfDay, weather }: LightingProps) {
       hemiGround: '#fecdd3',
     },
     noon: {
-      bg: '#f1f6fd',
+      bg: '#e2eaf5',
       ambient: '#ffffff',
-      ambientIntensity: 0.9,
+      ambientIntensity: 0.75,
       dirLight: '#fffbeb',
-      dirIntensity: 1.2,
+      dirIntensity: 1.05,
       dirPos: [12, 26, 10] as [number, number, number],
       hemiSky: '#dbeafe',
       hemiGround: '#cbd5e1',
@@ -77,8 +77,8 @@ function LightingAndEnvironment({ timeOfDay, weather }: LightingProps) {
 
   // Weather modifiers: darken and soften lighting
   const settings = { ...baseSettings };
-  let fogNear = 36;
-  let fogFar = 110;
+  let fogNear = 70;
+  let fogFar = 180;
 
   if (weather === 'rain') {
     if (timeOfDay === 'night') {
@@ -86,8 +86,8 @@ function LightingAndEnvironment({ timeOfDay, weather }: LightingProps) {
       settings.ambient = '#334155';
       settings.ambientIntensity = 0.35;
       settings.dirIntensity = 0.4;
-      fogNear = 24;
-      fogFar = 75;
+      fogNear = 50;
+      fogFar = 120;
     } else {
       settings.bg = '#8fa1b8';
       settings.ambient = '#94a3b8';
@@ -96,8 +96,8 @@ function LightingAndEnvironment({ timeOfDay, weather }: LightingProps) {
       settings.dirIntensity = 0.65;
       settings.hemiSky = '#64748b';
       settings.hemiGround = '#475569';
-      fogNear = 24;
-      fogFar = 85;
+      fogNear = 55;
+      fogFar = 130;
     }
   } else if (weather === 'snow') {
     if (timeOfDay === 'night') {
@@ -105,8 +105,8 @@ function LightingAndEnvironment({ timeOfDay, weather }: LightingProps) {
       settings.ambient = '#475569';
       settings.ambientIntensity = 0.38;
       settings.dirIntensity = 0.45;
-      fogNear = 28;
-      fogFar = 85;
+      fogNear = 55;
+      fogFar = 130;
     } else {
       settings.bg = '#b4c6db';
       settings.ambient = '#cbd5e1';
@@ -115,8 +115,8 @@ function LightingAndEnvironment({ timeOfDay, weather }: LightingProps) {
       settings.dirIntensity = 0.75;
       settings.hemiSky = '#94a3b8';
       settings.hemiGround = '#64748b';
-      fogNear = 28;
-      fogFar = 95;
+      fogNear = 60;
+      fogFar = 140;
     }
   }
 

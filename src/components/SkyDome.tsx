@@ -204,18 +204,18 @@ export function SkyDome({ timeOfDay, weather = 'none' }: SkyDomeProps) {
         sunColor: new THREE.Color('#fbbf24'), // Golden morning sun
         sunPos: new THREE.Vector3(22, 9, 14),
         sunIntensity: 0.5,
-        sunGlowRadius: 3.5,
+        sunGlowRadius: 24.0,
         starIntensity: 0.02,
       },
       noon: {
-        top: new THREE.Color('#a4c8fa'),      // Soft pastel azure
-        mid: new THREE.Color('#dceafd'),      // Airy celestial blue
-        horizon: new THREE.Color('#f1f6fd'),  // Warm pearl mist
+        top: new THREE.Color('#7eb3f7'),      // Clean pastel azure
+        mid: new THREE.Color('#b9d7fc'),      // Airy celestial blue
+        horizon: new THREE.Color('#e2eaf5'),  // Soft clear horizon
         bottom: new THREE.Color('#cbd5e1'),   // Ground blend
         sunColor: new THREE.Color('#fffbeb'), // Warm radiant sunlight
         sunPos: new THREE.Vector3(12, 26, 10),
         sunIntensity: 0.35,
-        sunGlowRadius: 4.0,
+        sunGlowRadius: 28.0,
         starIntensity: 0.0,
       },
       twilight: {
@@ -226,7 +226,7 @@ export function SkyDome({ timeOfDay, weather = 'none' }: SkyDomeProps) {
         sunColor: new THREE.Color('#fef08a'), // Glowing golden sun
         sunPos: new THREE.Vector3(20, 8, 16),
         sunIntensity: 0.55,
-        sunGlowRadius: 3.2,
+        sunGlowRadius: 24.0,
         starIntensity: 0.15,
       },
       night: {
@@ -237,7 +237,7 @@ export function SkyDome({ timeOfDay, weather = 'none' }: SkyDomeProps) {
         sunColor: new THREE.Color('#dbeafe'), // Soft silvery moon aura
         sunPos: new THREE.Vector3(10, 20, 10),
         sunIntensity: 0.4,
-        sunGlowRadius: 5.5,
+        sunGlowRadius: 28.0,
         starIntensity: 1.0,
       },
       // Weather overcast modifiers
